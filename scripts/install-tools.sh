@@ -2,7 +2,13 @@
 set -e
 
 echo "\e[32minstalling common tools\e[0m"
-sudo apt-get install -y git curl zsh unzip
+sudo apt-get install -y vim \
+                        vim-gui-common \
+                        vim-runtime \
+                        git \
+                        curl \
+                        zsh \
+                        unzip
 
 echo "\e[32minstalling VSCode\e[0m"
 sudo snap install code --classic
