@@ -8,7 +8,14 @@ sudo apt-get install -y vim \
                         git \
                         curl \
                         zsh \
-                        unzip
+                        unzip \
+                        fonts-powerline
+
+echo "\e[32mmaking zsh the default shell\e[0m"
+chsh -s $(which zsh)
+
+echo "\e[32minstalling oh-my-zsh\e[0m"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 echo "\e[32minstalling VSCode\e[0m"
 sudo snap install code --classic
