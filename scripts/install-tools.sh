@@ -13,9 +13,10 @@ sudo apt-get install -y vim \
 
 echo "\e[32mmaking zsh the default shell\e[0m"
 chsh -s $(which zsh)
+sudo chsh -s $(which zsh)
 
-echo "\e[32minstalling oh-my-zsh\e[0m"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+echo "\e[32minstalling oh-my-zsh for all users\e[0m"
+sudo su - root -c 'sh -c "git clone --depth=1 https://github.com/robbyrussell/oh-my-zsh.git /usr/share/oh-my-zsh"'
 
 echo "\e[32minstalling VSCode\e[0m"
 sudo snap install code --classic

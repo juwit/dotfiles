@@ -21,3 +21,6 @@ for DOTFILE in *; do
     ln -sfv "$DIRFILE" "$HOMEFILE"
    
 done
+
+echo "\e[32minstalling oh-my-zsh for the root user\e[0m"
+sudo ln -sfv "$DOTFILESDIR/zshrc" /root/.zshrc
