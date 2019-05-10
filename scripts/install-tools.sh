@@ -37,6 +37,9 @@ sudo mv op /opt/op
 echo "${GREEN}installing gitkraken${NORMAL}"
 sudo snap install gitkraken
 
+echo "${GREEN}installing postman and insomnia${NORMAL}"
+sudo snap install postman insomnia
+
 echo "${GREEN}cleaning up files${NORMAL}"
 rm op.zip op.sig
 
