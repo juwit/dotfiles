@@ -29,6 +29,9 @@ curl -s -o op.zip https://cache.agilebits.com/dist/1P/op/pkg/v0.5.5/op_linux_amd
 unzip op.zip
 sudo mv op /opt/op
 
+echo "\e[32minstalling gitkraken\e[0m"
+sudo snap install gitkraken
+
 echo "\e[32mcleaning up files\e[0m"
 rm op.zip op.sig
 
