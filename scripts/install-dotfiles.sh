@@ -1,11 +1,14 @@
 #!/bin/sh
 set -e
 
+export GREEN="\e[32m"
+export NORMAL="\e[0m"
+
 cd ..
 
 DOTFILESDIR=$(pwd -P)
 
-echo "\e[32minstalling dot files\e[0m"
+echo "${GREEN}installing dot files${NORMAL}"
 
 for DOTFILE in *; do
     HOMEFILE="$HOME/.$DOTFILE"
@@ -22,5 +25,5 @@ for DOTFILE in *; do
    
 done
 
-echo "\e[32minstalling oh-my-zsh for the root user\e[0m"
+echo "${GREEN}installing oh-my-zsh for the root user${NORMAL}"
 sudo ln -sfv "$DOTFILESDIR/zshrc" /root/.zshrc
