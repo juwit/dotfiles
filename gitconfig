@@ -1,0 +1,11 @@
+[user]
+	email = julien.wittouck@gmail.com
+	name = Julien WITTOUCK
+	signingkey = 54C0EFA1762381BA
+[core]
+	editor = vim
+	pager = less -FRSX
+[commit]
+	gpgsign = true
+[format]
+	pretty = oneline
