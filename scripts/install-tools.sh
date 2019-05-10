@@ -16,7 +16,9 @@ chsh -s $(which zsh)
 sudo chsh -s $(which zsh)
 
 echo "\e[32minstalling oh-my-zsh for all users\e[0m"
-sudo su - root -c 'sh -c "git clone --depth=1 https://github.com/robbyrussell/oh-my-zsh.git /usr/share/oh-my-zsh"'
+if [ ! -d /usr/share/oh-my-zsh ]; then
+    sudo su - root -c 'sh -c "git clone --depth=1 https://github.com/robbyrussell/oh-my-zsh.git /usr/share/oh-my-zsh"'
+fi
 
 echo "\e[32minstalling VSCode\e[0m"
 sudo snap install code --classic
