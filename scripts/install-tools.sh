@@ -12,6 +12,7 @@ sudo apt-get install -y vim \
                         curl \
                         zsh \
                         unzip \
+                        htop \
                         fonts-powerline
 
 echo "${GREEN}making zsh the default shell${NORMAL}"
