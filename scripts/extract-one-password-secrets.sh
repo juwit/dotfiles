@@ -28,8 +28,8 @@ onepassword_get() {
   chmod 600 "$HOME/$2"
 }
 
-onepassword_get id_rsa_julien.wittouck@gmail.com.pub .ssh/id_rsa_julien.wittouck@gmail.com.pub
-onepassword_get id_rsa_julien.wittouck@gmail.com .ssh/id_rsa_julien.wittouck@gmail.com
+onepassword_get id_rsa_julien.wittouck@gmail.com.pub .ssh/id_rsa.pub
+onepassword_get id_rsa_julien.wittouck@gmail.com .ssh/id_rsa
 onepassword_get julien.wittouck@gmail.com.private.gpg-key .gnupg/julien.wittouck@gmail.com.private.gpg-key
 onepassword_get julien.wittouck@gmail.com.public.gpg-key .gnupg/julien.wittouck@gmail.com.public.gpg-key
 gpg --import ~/.gnupg/julien.wittouck@gmail.com.public.gpg-key \
