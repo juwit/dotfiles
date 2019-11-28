@@ -10,4 +10,14 @@
 [format]
 	pretty = oneline
 [alias]
+    # show log lines
 	logline = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    
+    # show last commit content
+    last = log -1 HEAD --name-status
+
+    # amend previous commit
+    amend = commit --amend --no-edit
+
+    # Unstage changes from the index
+    unstage = reset HEAD --
