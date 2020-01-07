@@ -8,8 +8,7 @@ onepassword_login() {
     exit 1
   fi
 
-  # shellcheck disable=SC2154
-  if [ -z "$OP_SESSION_mcquaid" ]
+  if [ -z "$OP_SESSION_my" ]
   then
     echo "Logging into 1Password..."
     eval "$(/opt/op signin my.1password.com julien.wittouck@gmail.com)"
@@ -27,6 +26,8 @@ onepassword_get() {
   /opt/op get document "$1" > "$HOME/$2"
   chmod 600 "$HOME/$2"
 }
+
+mkdir ~/.ssh
 
 echo "Getting ssh keys"
 onepassword_get id_rsa_julien.wittouck@gmail.com.pub .ssh/id_rsa.pub
