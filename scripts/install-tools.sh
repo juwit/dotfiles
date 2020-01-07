@@ -13,7 +13,7 @@ sudo apt-get install -y vim \
                         zsh \
                         unzip \
                         htop \
-                        fonts-powerline
+                        tilix
 
 echo "${GREEN}making zsh the default shell${NORMAL}"
 chsh -s $(which zsh)
@@ -23,6 +23,9 @@ echo "${GREEN}installing oh-my-zsh for all users${NORMAL}"
 if [ ! -d /usr/share/oh-my-zsh ]; then
     sudo su - root -c 'sh -c "git clone --depth=1 https://github.com/robbyrussell/oh-my-zsh.git /usr/share/oh-my-zsh"'
 fi
+
+echo "${GREEN}installing snap${NORMAL}"
+sudo apt install snapd
 
 echo "${GREEN}installing VSCode${NORMAL}"
 sudo snap install code --classic
