@@ -4,6 +4,9 @@ set -e
 export GREEN="\e[32m"
 export NORMAL="\e[0m"
 
+echo "${GREEN}installing direnv${NORMAL}"
+sudo apt install direnv
+
 TERRAFORM_VERSION="0.12.18"
 
 echo "${GREEN}installing terraform${NORMAL}"
