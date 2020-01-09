@@ -8,6 +8,7 @@ echo "${GREEN}installing direnv${NORMAL}"
 sudo apt install direnv
 
 TERRAFORM_VERSION="0.12.18"
+PACKER_VERSION="1.5.1"
 
 if [ ! -f /opt/terraform ]; then
     echo "${GREEN}installing terraform${NORMAL}"
@@ -15,4 +16,12 @@ if [ ! -f /opt/terraform ]; then
     unzip -d /tmp /tmp/terraform.zip
     sudo mv /tmp/terraform /opt
     rm /tmp/terraform.zip
+fi
+
+if [ ! -f /opt/packer ]; then
+    echo "${GREEN}installing packer${NORMAL}"
+    curl -o /tmp/packer.zip https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip
+    unzip -d /tmp /tmp/packer.zip
+    sudo mv /tmp/packer /opt
+    rm /tmp/packer.zip
 fi
