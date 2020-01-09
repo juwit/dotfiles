@@ -9,8 +9,10 @@ sudo apt install direnv
 
 TERRAFORM_VERSION="0.12.18"
 
-echo "${GREEN}installing terraform${NORMAL}"
-curl -o /tmp/terraform.zip https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip
-unzip -d /tmp /tmp/terraform.zip
-sudo mv /tmp/terraform /opt
-rm /tmp/terraform.zip
+if [ ! -f /opt/terraform ]; then
+    echo "${GREEN}installing terraform${NORMAL}"
+    curl -o /tmp/terraform.zip https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip
+    unzip -d /tmp /tmp/terraform.zip
+    sudo mv /tmp/terraform /opt
+    rm /tmp/terraform.zip
+fi
