@@ -25,3 +25,10 @@ if [ ! -f /opt/packer ]; then
     sudo mv /tmp/packer /opt
     rm /tmp/packer.zip
 fi
+
+if [ ! -f /opt/kubectl ]; then
+    echo "${GREEN}installing kubectl${NORMAL}"
+    curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+    chmod +x kubectl
+    sudo mv kubectl /opt
+fi
