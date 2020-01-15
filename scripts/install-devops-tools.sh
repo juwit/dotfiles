@@ -32,3 +32,12 @@ if [ ! -f /opt/kubectl ]; then
     chmod +x kubectl
     sudo mv kubectl /opt
 fi
+
+if [ ! -f /opt/kubens ]; then
+    curl -Lo /tmp/kubectx.zip https://github.com/ahmetb/kubectx/archive/v0.7.1.zip
+    unzip -d /tmp /tmp/kubectx.zip
+    sudo mv /tmp/kubectx-0.7.1/kubectx /opt
+    sudo mv /tmp/kubectx-0.7.1/kubens /opt
+    rm /tmp/kubectx.zip
+    rm -rf /tmp/kubectx-0.7.1
+fi
