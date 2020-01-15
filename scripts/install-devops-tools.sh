@@ -4,8 +4,10 @@ set -e
 export GREEN="\e[32m"
 export NORMAL="\e[0m"
 
-echo "${GREEN}installing direnv${NORMAL}"
-sudo apt install direnv
+if [ ! -x "$(command -v direnv)" ]; then
+    echo "${GREEN}installing direnv${NORMAL}"
+    sudo apt install direnv
+fi
 
 TERRAFORM_VERSION="0.12.18"
 PACKER_VERSION="1.5.1"
@@ -33,7 +35,8 @@ if [ ! -f /opt/kubectl ]; then
     sudo mv kubectl /opt
 fi
 
-if [ ! -f /opt/kubens ]; then
+if [ ! -f /opt/kubectx ]; then
+    echo "${GREEN}installing kubectx and kubens${NORMAL}"
     curl -Lo /tmp/kubectx.zip https://github.com/ahmetb/kubectx/archive/v0.7.1.zip
     unzip -d /tmp /tmp/kubectx.zip
     sudo mv /tmp/kubectx-0.7.1/kubectx /opt
