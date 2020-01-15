@@ -22,6 +22,8 @@ sudo chsh -s $(which zsh)
 echo "${GREEN}installing oh-my-zsh for all users${NORMAL}"
 if [ ! -d /usr/share/oh-my-zsh ]; then
     sudo su - root -c 'sh -c "git clone --depth=1 https://github.com/robbyrussell/oh-my-zsh.git /usr/share/oh-my-zsh"'
+    mkdir ~/.zsh_cache
+    sudo mkdir /root/.zsh_cache
 fi
 
 echo "${GREEN}installing snap${NORMAL}"
