@@ -69,5 +69,10 @@ if [ ! -x "$(command -v insomnia)" ]; then
     sudo snap install insomnia
 fi
 
+if [ ! -x "$(command -v asciidoctor)" ]; then
+    echo "${GREEN}installing asciidoctor${NORMAL}"
+    sudo gem install asciidoctor pygments.rb
+fi
+
 echo "${GREEN}cleaning up apt packages${NORMAL}"
 sudo apt-get -y autoremove
