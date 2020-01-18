@@ -31,14 +31,20 @@ fi
 echo "${GREEN}installing snap${NORMAL}"
 sudo apt install snapd
 
-echo "${GREEN}installing VSCode${NORMAL}"
-sudo snap install code --classic
+if [ ! -x "$(command -v code)" ]; then
+    echo "${GREEN}installing VSCode${NORMAL}"
+    sudo snap install code --classic
+fi
 
-echo "${GREEN}installing intellij-idea-ultimate${NORMAL}"
-sudo snap install intellij-idea-ultimate --classic
+if [ ! -x "$(command -v intellij-idea-ultimate)" ]; then
+    echo "${GREEN}installing intellij-idea-ultimate${NORMAL}"
+    sudo snap install intellij-idea-ultimate --classic
+fi
 
-echo "${GREEN}installing slack${NORMAL}"
-sudo snap install slack --classic
+if [ ! -x "$(command -v slack)" ]; then
+    echo "${GREEN}installing slack${NORMAL}"
+    sudo snap install slack --classic
+fi
 
 if [ ! -e /opt/op ]; then
     echo "${GREEN}installing one password${NORMAL}"
@@ -48,11 +54,20 @@ if [ ! -e /opt/op ]; then
     rm op.sig op.zip
 fi
 
-echo "${GREEN}installing gitkraken${NORMAL}"
-sudo snap install gitkraken
+if [ ! -x "$(command -v gitkraken)" ]; then
+    echo "${GREEN}installing gitkraken${NORMAL}"
+    sudo snap install gitkraken
+fi
 
-echo "${GREEN}installing postman and insomnia${NORMAL}"
-sudo snap install postman insomnia
+if [ ! -x "$(command -v postman)" ]; then
+    echo "${GREEN}installing postman${NORMAL}"
+    sudo snap install postman
+fi
+
+if [ ! -x "$(command -v insomnia)" ]; then
+    echo "${GREEN}installing insomnia${NORMAL}"
+    sudo snap install insomnia
+fi
 
 echo "${GREEN}cleaning up apt packages${NORMAL}"
 sudo apt-get -y autoremove
