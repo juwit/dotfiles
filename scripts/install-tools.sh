@@ -15,9 +15,11 @@ sudo apt-get install -y vim \
                         htop \
                         tilix
 
-echo "${GREEN}making zsh the default shell${NORMAL}"
-chsh -s $(which zsh)
-sudo chsh -s $(which zsh)
+if [ $SHELL != $(which zsh) ]; then
+    echo "${GREEN}making zsh the default shell${NORMAL}"
+    chsh -s $(which zsh)
+    sudo chsh -s $(which zsh)
+fi
 
 echo "${GREEN}installing oh-my-zsh for all users${NORMAL}"
 if [ ! -d /usr/share/oh-my-zsh ]; then
