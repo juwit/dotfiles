@@ -74,5 +74,12 @@ if [ ! -x "$(command -v asciidoctor)" ]; then
     sudo gem install asciidoctor pygments.rb
 fi
 
+if [ ! -x "$(command -v mongodb-compass-community)" ]; then
+    curl -Lo /tmp/compass.deb https://downloads.mongodb.com/compass/mongodb-compass-community_1.20.4_amd64.deb
+    sudo apt install -y /tmp/compass.deb
+    rm /tmp/compass.deb
+fi
+
+
 echo "${GREEN}cleaning up apt packages${NORMAL}"
 sudo apt-get -y autoremove
