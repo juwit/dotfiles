@@ -38,11 +38,13 @@ sudo snap install intellij-idea-ultimate --classic
 echo "${GREEN}installing slack${NORMAL}"
 sudo snap install slack --classic
 
-echo "${GREEN}installing one password${NORMAL}"
-curl -s -o op.zip https://cache.agilebits.com/dist/1P/op/pkg/v0.5.5/op_linux_amd64_v0.5.5.zip
-unzip op.zip
-sudo mv op /opt/op
-rm op.sig op.zip
+if [ ! -e /opt/op ]; then
+    echo "${GREEN}installing one password${NORMAL}"
+    curl -s -o op.zip https://cache.agilebits.com/dist/1P/op/pkg/v0.5.5/op_linux_amd64_v0.5.5.zip
+    unzip op.zip
+    sudo mv op /opt/op
+    rm op.sig op.zip
+fi
 
 echo "${GREEN}installing gitkraken${NORMAL}"
 sudo snap install gitkraken
