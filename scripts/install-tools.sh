@@ -52,8 +52,5 @@ sudo snap install gitkraken
 echo "${GREEN}installing postman and insomnia${NORMAL}"
 sudo snap install postman insomnia
 
-echo "${GREEN}cleaning up files${NORMAL}"
-rm op.zip op.sig
-
 echo "${GREEN}cleaning up apt packages${NORMAL}"
 sudo apt-get -y autoremove
