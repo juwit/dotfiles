@@ -13,7 +13,11 @@ sudo apt-get install -y vim \
                         zsh \
                         unzip \
                         htop \
-                        tilix
+                        tilix \
+                        fonts-powerline
+
+echo "${GREEN}make tilix the default terminal for gnome${NORMAL}"
+sudo update-alternatives --config x-terminal-emulator
 
 if [ $SHELL != $(which zsh) ]; then
     echo "${GREEN}making zsh the default shell${NORMAL}"
