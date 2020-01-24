@@ -9,7 +9,7 @@ if [ ! -x "$(command -v direnv)" ]; then
     sudo apt install direnv
 fi
 
-TERRAFORM_VERSION="0.12.18"
+TERRAFORM_VERSION="0.12.20"
 PACKER_VERSION="1.5.1"
 
 if [ ! -f /opt/terraform ]; then
