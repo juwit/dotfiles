@@ -47,7 +47,7 @@ fi
 
 if [ ! -x "$(command -v docker)" ]; then
     echo "${GREEN}installing docker${NORMAL}"
-    sudo apt-get install \
+    sudo apt-get install -y \
         apt-transport-https \
         ca-certificates \
         gnupg-agent \
