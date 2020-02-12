@@ -45,6 +45,13 @@ if [ ! -f /opt/kubectx ]; then
     rm -rf /tmp/kubectx-0.7.1
 fi
 
+if [ ! -f /opt/kubetail ]; then
+    echo "${GREEN}installing kubetail${NORMAL}"
+    curl -Lo /tmp/kubetail.tar.gz https://github.com/johanhaleby/kubetail/archive/1.6.10.tar.gz
+    sudo tar -xf /tmp/kubetail.tar.gz -C /opt --strip-components 1 kubetail-1.6.10/kubetail
+    rm /tmp/kubetail.tar.gz
+fi
+
 if [ ! -x "$(command -v docker)" ]; then
     echo "${GREEN}installing docker${NORMAL}"
     sudo apt-get install -y \
