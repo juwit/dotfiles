@@ -60,7 +60,9 @@ fi
 
 if [ ! -x "$(command -v gitkraken)" ]; then
     echo "${GREEN}installing gitkraken${NORMAL}"
-    sudo snap install gitkraken
+    curl -L -o /tmp/gitkraken.deb https://release.gitkraken.com/linux/gitkraken-amd64.deb
+    sudo apt install /tmp/gitkraken.deb
+    rm /tmp/gitkraken.deb
 fi
 
 if [ ! -x "$(command -v postman)" ]; then
