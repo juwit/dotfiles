@@ -21,3 +21,9 @@
 
     # Unstage changes from the index
     unstage = reset HEAD --
+	
+    # execute a git command on subdirectories
+    all = "!f() { ls -R -d */.git | sed s,/.git,, | xargs -P10 -I{} git -C {} $1; }; f"
+
+    # publish a new branch to origin
+    first-push = "!git push -u origin $(git rev-parse --abbrev-ref HEAD)"
