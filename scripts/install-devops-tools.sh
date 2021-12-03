@@ -9,23 +9,18 @@ if [ ! -x "$(command -v direnv)" ]; then
     sudo apt install direnv
 fi
 
-TERRAFORM_VERSION="0.12.20"
-PACKER_VERSION="1.5.1"
-
-if [ ! -f /opt/terraform ]; then
+if [ ! -x "$(command -v terraform)" ]; then
     echo "${GREEN}installing terraform${NORMAL}"
-    curl -o /tmp/terraform.zip https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip
-    unzip -d /tmp /tmp/terraform.zip
-    sudo mv /tmp/terraform /opt
-    rm /tmp/terraform.zip
+    curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+    sudo apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+    sudo apt-get update && sudo apt-get install terraform
 fi
 
-if [ ! -f /opt/packer ]; then
+if [ ! -x "$(command -v packer)" ]; then
     echo "${GREEN}installing packer${NORMAL}"
-    curl -o /tmp/packer.zip https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip
-    unzip -d /tmp /tmp/packer.zip
-    sudo mv /tmp/packer /opt
-    rm /tmp/packer.zip
+    curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+    sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+    sudo apt-get update && sudo apt-get install packer
 fi
 
 if [ ! -f /opt/kubectl ]; then
@@ -37,19 +32,13 @@ fi
 
 if [ ! -f /opt/kubectx ]; then
     echo "${GREEN}installing kubectx and kubens${NORMAL}"
-    curl -Lo /tmp/kubectx.zip https://github.com/ahmetb/kubectx/archive/v0.7.1.zip
+    KUBECTX_VERSION=0.9.4
+    curl -Lo /tmp/kubectx.zip https://github.com/ahmetb/kubectx/archive/v${KUBECTX_VERSION}.zip
     unzip -d /tmp /tmp/kubectx.zip
-    sudo mv /tmp/kubectx-0.7.1/kubectx /opt
-    sudo mv /tmp/kubectx-0.7.1/kubens /opt
+    sudo mv /tmp/kubectx-${KUBECTX_VERSION}/kubectx /opt
+    sudo mv /tmp/kubectx-${KUBECTX_VERSION}/kubens /opt
     rm /tmp/kubectx.zip
-    rm -rf /tmp/kubectx-0.7.1
-fi
-
-if [ ! -f /opt/kubetail ]; then
-    echo "${GREEN}installing kubetail${NORMAL}"
-    curl -Lo /tmp/kubetail.tar.gz https://github.com/johanhaleby/kubetail/archive/1.6.10.tar.gz
-    sudo tar -xf /tmp/kubetail.tar.gz -C /opt --strip-components 1 kubetail-1.6.10/kubetail
-    rm /tmp/kubetail.tar.gz
+    rm -rf /tmp/kubectx-${KUBECTX_VERSION}
 fi
 
 if [ ! -x "$(command -v docker)" ]; then
@@ -71,6 +60,6 @@ fi
 
 if [ ! -x "$(command -v docker-compose)" ]; then
     echo "${GREEN}installing docker-compose${NORMAL}"
-    sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
 fi

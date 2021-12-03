@@ -14,7 +14,8 @@ sudo apt-get install -y vim \
                         unzip \
                         htop \
                         tilix \
-                        fonts-powerline
+                        fonts-powerline \
+                        direnv
 
 echo "${GREEN}make tilix the default terminal for gnome${NORMAL}"
 sudo update-alternatives --config x-terminal-emulator
