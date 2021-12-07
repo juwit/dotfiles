@@ -16,6 +16,15 @@ if [ ! -x "$(command -v terraform)" ]; then
     sudo apt-get update && sudo apt-get install terraform
 fi
 
+if [ ! -x "$(command -v terraform-docs)" ]; then
+    echo "${GREEN}installing terraform-docs${NORMAL}"
+    curl -Lo ./terraform-docs.tar.gz https://github.com/terraform-docs/terraform-docs/releases/download/v0.16.0/terraform-docs-v0.16.0-$(uname)-amd64.tar.gz
+    tar -xzf terraform-docs.tar.gz
+    chmod +x terraform-docs
+    sudo mv terraform-docs /usr/local/bin/terraform-docs
+    rm terraform-docs.tar.gz README.md LICENSE
+fi
+
 if [ ! -x "$(command -v packer)" ]; then
     echo "${GREEN}installing packer${NORMAL}"
     curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
