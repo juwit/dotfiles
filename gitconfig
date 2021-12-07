@@ -27,3 +27,5 @@
 
     # publish a new branch to origin
     first-push = "!git push -u origin $(git rev-parse --abbrev-ref HEAD)"
+[pull]
+	ff = only
