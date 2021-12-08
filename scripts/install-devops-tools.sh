@@ -39,6 +39,15 @@ if [ ! -f /opt/kubectl ]; then
     sudo mv kubectl /opt
 fi
 
+if [ ! -x "$(command -v helm)" ]; then
+    echo "${GREEN}installing helm${NORMAL}"
+    curl https://baltocdn.com/helm/signing.asc | sudo apt-key add -
+    sudo apt-get install apt-transport-https --yes
+    echo "deb https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+    sudo apt-get update
+    sudo apt-get install helm
+fi
+
 if [ ! -f /opt/kubectx ]; then
     echo "${GREEN}installing kubectx and kubens${NORMAL}"
     KUBECTX_VERSION=0.9.4
