@@ -15,7 +15,11 @@ sudo apt-get install -y vim \
                         htop \
                         tilix \
                         fonts-powerline \
-                        direnv
+                        direnv \
+                        ssh \
+                        proxychains
+
+flatpak install org.chromium.Chromium
 
 echo "${GREEN}make tilix the default terminal for gnome${NORMAL}"
 sudo update-alternatives --config x-terminal-emulator
