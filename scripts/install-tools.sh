@@ -17,7 +17,8 @@ sudo apt-get install -y vim \
                         fonts-powerline \
                         direnv \
                         ssh \
-                        proxychains
+                        proxychains \
+                        neofetch
 
 flatpak install -y flathub org.chromium.Chromium
 
