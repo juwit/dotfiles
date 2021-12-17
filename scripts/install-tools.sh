@@ -19,7 +19,7 @@ sudo apt-get install -y vim \
                         ssh \
                         proxychains
 
-flatpak install org.chromium.Chromium
+flatpak install -y flathub org.chromium.Chromium
 
 echo "${GREEN}make tilix the default terminal for gnome${NORMAL}"
 sudo update-alternatives --config x-terminal-emulator
