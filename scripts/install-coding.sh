@@ -25,3 +25,9 @@ flatpak install -y flathub com.jetbrains.DataGrip
 
 echo "${GREEN}installing drawio${NORMAL}"
 flatpak install -y flathub com.jgraph.drawio.desktop
+
+echo "${GREEN}installing insomnia${NORMAL}"
+flatpak install flathub rest.insomnia.Insomnia
+
+echo "${GREEN}installing gitkraken${NORMAL}"
+flatpak install flathub com.axosoft.GitKraken

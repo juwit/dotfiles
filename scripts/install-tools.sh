@@ -45,23 +45,6 @@ if [ ! -e /opt/op ]; then
     rm op.sig op.zip
 fi
 
-if [ ! -x "$(command -v gitkraken)" ]; then
-    echo "${GREEN}installing gitkraken${NORMAL}"
-    curl -L -o /tmp/gitkraken.deb https://release.gitkraken.com/linux/gitkraken-amd64.deb
-    sudo apt install /tmp/gitkraken.deb
-    rm /tmp/gitkraken.deb
-fi
-
-if [ ! -x "$(command -v postman)" ]; then
-    echo "${GREEN}installing postman${NORMAL}"
-    sudo snap install postman
-fi
-
-if [ ! -x "$(command -v insomnia)" ]; then
-    echo "${GREEN}installing insomnia${NORMAL}"
-    sudo snap install insomnia
-fi
-
 if [ ! -x "$(command -v asciidoctor)" ]; then
     echo "${GREEN}installing asciidoctor${NORMAL}"
     sudo apt install ruby
