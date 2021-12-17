@@ -37,24 +37,6 @@ if [ ! -d /usr/share/oh-my-zsh ]; then
     sudo mkdir /root/.zsh_cache
 fi
 
-echo "${GREEN}installing snap${NORMAL}"
-sudo apt install snapd
-
-if [ ! -x "$(command -v code)" ]; then
-    echo "${GREEN}installing VSCode${NORMAL}"
-    sudo snap install code --classic
-fi
-
-if [ ! -x "$(command -v intellij-idea-ultimate)" ]; then
-    echo "${GREEN}installing intellij-idea-ultimate${NORMAL}"
-    sudo snap install intellij-idea-ultimate --classic
-fi
-
-if [ ! -x "$(command -v slack)" ]; then
-    echo "${GREEN}installing slack${NORMAL}"
-    sudo snap install slack --classic
-fi
-
 if [ ! -e /opt/op ]; then
     echo "${GREEN}installing one password${NORMAL}"
     curl -s -o op.zip https://cache.agilebits.com/dist/1P/op/pkg/v0.5.5/op_linux_amd64_v0.5.5.zip
