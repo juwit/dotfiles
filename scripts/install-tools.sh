@@ -64,7 +64,8 @@ fi
 
 if [ ! -x "$(command -v asciidoctor)" ]; then
     echo "${GREEN}installing asciidoctor${NORMAL}"
-    sudo gem install asciidoctor pygments.rb
+    sudo apt install ruby
+    sudo gem install asciidoctor asciidoctor-pdf pygments.rb
 fi
 
 if [ ! -x "$(command -v mongodb-compass-community)" ]; then
