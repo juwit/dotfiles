@@ -39,7 +39,8 @@ fi
 
 if [ ! -e /opt/op ]; then
     echo "${GREEN}installing one password${NORMAL}"
-    curl -s -o op.zip https://cache.agilebits.com/dist/1P/op/pkg/v0.5.5/op_linux_amd64_v0.5.5.zip
+    OP_VERSION="1.12.3"
+    curl -s -o op.zip "https://cache.agilebits.com/dist/1P/op/pkg/v${OP_VERSION}/op_linux_amd64_v${OP_VERSION}.zip"
     unzip op.zip
     sudo mv op /opt/op
     rm op.sig op.zip
