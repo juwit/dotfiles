@@ -26,3 +26,6 @@ if [ ! -x "$(command -v datagrip)" ]; then
     echo "${GREEN}installing datagrip${NORMAL}"
     flatpak install -y flathub com.jetbrains.DataGrip
 fi
+
+echo "${GREEN}installing drawio${NORMAL}"
+flatpak install -y flathub com.jgraph.drawio.desktop

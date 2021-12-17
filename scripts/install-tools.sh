@@ -74,11 +74,5 @@ if [ ! -x "$(command -v mongodb-compass-community)" ]; then
     rm /tmp/compass.deb
 fi
 
-if [ ! -x "$(command -v drawio)" ]; then
-    echo "${GREEN}installing drawio${NORMAL}"
-    sudo snap install drawio
-fi
-
-
 echo "${GREEN}cleaning up apt packages${NORMAL}"
 sudo apt-get -y autoremove
