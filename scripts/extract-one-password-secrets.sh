@@ -27,13 +27,14 @@ onepassword_get() {
   chmod 600 "$HOME/$2"
 }
 
-mkdir ~/.ssh
+mkdir -p ~/.ssh
 
 echo "Getting ssh keys"
 onepassword_get id_rsa_julien.wittouck@gmail.com.pub .ssh/id_rsa.pub
 onepassword_get id_rsa_julien.wittouck@gmail.com .ssh/id_rsa
 onepassword_get id_ed25519_julien@codeka.io .ssh/id_ed25519_julien@codeka.io
 onepassword_get id_ed25519_julien@codeka.io.pub .ssh/id_ed25519_julien@codeka.io.pub
+chmod 600 ~/.ssh/*
 
 echo "Getting gpg Key"
 onepassword_get julien.wittouck@gmail.com.private.gpg-key .gnupg/julien.wittouck@gmail.com.private.gpg-key
