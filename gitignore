@@ -1,0 +1,11 @@
+# global gitignore file
+
+# idea settings
+.idea/
+*.iml
+
+# java
+target/
+
+# direnv
+.envrc
