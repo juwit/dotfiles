@@ -51,10 +51,11 @@ if [ ! -x "$(command -v asciidoctor)" ]; then
     sudo gem install asciidoctor asciidoctor-pdf pygments.rb
 fi
 
-if [ ! -x "$(command -v mongodb-compass-community)" ]; then
-    curl -Lo /tmp/compass.deb https://downloads.mongodb.com/compass/mongodb-compass-community_1.20.4_amd64.deb
-    sudo apt install -y /tmp/compass.deb
-    rm /tmp/compass.deb
+if [ ! -x "$(command -v insync)" ]; then
+    echo "${GREEN}installing insync${NORMAL}"
+    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ACCAF35C
+    echo 'deb http://apt.insync.io/ubuntu impish non-free contrib' | sudo tee /etc/apt/sources.list.d/insync.list
+    sudo apt-get update && sudo apt-get install insync
 fi
 
 echo "${GREEN}cleaning up apt packages${NORMAL}"
