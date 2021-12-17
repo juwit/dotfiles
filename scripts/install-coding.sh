@@ -17,15 +17,11 @@ if [ ! -x "$(command -v notable)" ]; then
     rm notable.deb
 fi
 
-if [ ! -x "$(command -v intellij-idea-ultimate)" ]; then
-    echo "${GREEN}installing intellij-idea-ultimate${NORMAL}"
-    flatpak install -y flathub com.jetbrains.IntelliJ-IDEA-Ultimate
-fi
+echo "${GREEN}installing intellij-idea-ultimate${NORMAL}"
+flatpak install -y flathub com.jetbrains.IntelliJ-IDEA-Ultimate
 
-if [ ! -x "$(command -v datagrip)" ]; then
-    echo "${GREEN}installing datagrip${NORMAL}"
-    flatpak install -y flathub com.jetbrains.DataGrip
-fi
+echo "${GREEN}installing datagrip${NORMAL}"
+flatpak install -y flathub com.jetbrains.DataGrip
 
 echo "${GREEN}installing drawio${NORMAL}"
 flatpak install -y flathub com.jgraph.drawio.desktop
