@@ -65,6 +65,7 @@ DEFAULT_USER=`whoami`
 plugins=(
   git
   kubectl
+  docker
 )
 
 source $ZSH/oh-my-zsh.sh
