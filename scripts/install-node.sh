@@ -8,6 +8,7 @@ if [ ! -x "$(command -v node)" ]; then
     echo "${GREEN}installing nodejs${NORMAL}"
     curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
     sudo apt-get install -y nodejs
+    sudo corepack enable
 fi
 
 if [ ! -x "$(command -v gitmoji-changelog)" ]; then
