@@ -27,7 +27,7 @@ echo "${GREEN}installing drawio${NORMAL}"
 flatpak install -y flathub com.jgraph.drawio.desktop
 
 echo "${GREEN}installing insomnia${NORMAL}"
-flatpak install flathub rest.insomnia.Insomnia
+flatpak install -y flathub rest.insomnia.Insomnia
 
 echo "${GREEN}installing gitkraken${NORMAL}"
-flatpak install flathub com.axosoft.GitKraken
+flatpak install -y flathub com.axosoft.GitKraken
