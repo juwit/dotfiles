@@ -7,4 +7,4 @@ echo "${GREEN}installing steam${NORMAL}"
 sudo apt-get install -y steam
 
 echo "${GREEN}installing spotify${NORMAL}"
-flatpak install flathub com.spotify.Client
+flatpak install -y flathub com.spotify.Client
