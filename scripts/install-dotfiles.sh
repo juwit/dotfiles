@@ -1,14 +1,13 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
-export GREEN="\e[32m"
-export NORMAL="\e[0m"
+source utils.sh
 
-echo "${GREEN}installing dot files${NORMAL}"
+print "installing dot files"
 ln -sfv $PWD/vimrc ~/.vimrc
 ln -sfv $PWD/zshrc ~/.zshrc
 ln -sfv $PWD/gitconfig ~/.gitconfig
 mkdir -p ~/.config/git && ln -sfv $PWD/gitignore ~/.config/git/ignore
 
-echo "${GREEN}installing oh-my-zsh for the root user${NORMAL}"
+print "installing oh-my-zsh for the root user"
 sudo ln -sfv "$DOTFILESDIR/zshrc" /root/.zshrc

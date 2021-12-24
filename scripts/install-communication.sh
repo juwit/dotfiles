@@ -1,10 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 
-export GREEN="\e[32m"
-export NORMAL="\e[0m"
+source utils.sh
 
-echo "${GREEN}installing slack${NORMAL}"
+print "installing slack"
 flatpak install slack
 
-echo "${GREEN}installing discord${NORMAL}"
+print "installing discord"
 flatpak install discord

@@ -1,10 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 
-export GREEN="\e[32m"
-export NORMAL="\e[0m"
+source utils.sh
 
-echo "${GREEN}installing steam${NORMAL}"
+print "installing steam"
 sudo apt-get install -y steam
 
-echo "${GREEN}installing spotify${NORMAL}"
+print "installing spotify"
 flatpak install -y flathub com.spotify.Client

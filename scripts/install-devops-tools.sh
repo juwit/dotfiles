@@ -1,23 +1,22 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
-export GREEN="\e[32m"
-export NORMAL="\e[0m"
+source utils.sh
 
 if [ ! -x "$(command -v direnv)" ]; then
-    echo "${GREEN}installing direnv${NORMAL}"
+    print "installing direnv"
     sudo apt install direnv
 fi
 
 if [ ! -x "$(command -v terraform)" ]; then
-    echo "${GREEN}installing terraform${NORMAL}"
+    print "installing terraform"
     curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
     sudo apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
     sudo apt-get update && sudo apt-get install terraform
 fi
 
 if [ ! -x "$(command -v terraform-docs)" ]; then
-    echo "${GREEN}installing terraform-docs${NORMAL}"
+    print "installing terraform-docs"
     curl -Lo ./terraform-docs.tar.gz https://github.com/terraform-docs/terraform-docs/releases/download/v0.16.0/terraform-docs-v0.16.0-$(uname)-amd64.tar.gz
     tar -xzf terraform-docs.tar.gz
     chmod +x terraform-docs
@@ -26,21 +25,21 @@ if [ ! -x "$(command -v terraform-docs)" ]; then
 fi
 
 if [ ! -x "$(command -v packer)" ]; then
-    echo "${GREEN}installing packer${NORMAL}"
+    print "installing packer"
     curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
     sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
     sudo apt-get update && sudo apt-get install packer
 fi
 
 if [ ! -f /opt/kubectl ]; then
-    echo "${GREEN}installing kubectl${NORMAL}"
+    print "installing kubectl"
     curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
     chmod +x kubectl
     sudo mv kubectl /opt
 fi
 
 if [ ! -x "$(command -v helm)" ]; then
-    echo "${GREEN}installing helm${NORMAL}"
+    print "installing helm"
     curl https://baltocdn.com/helm/signing.asc | sudo apt-key add -
     sudo apt-get install apt-transport-https --yes
     echo "deb https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
@@ -49,7 +48,7 @@ if [ ! -x "$(command -v helm)" ]; then
 fi
 
 if [ ! -f /opt/kubectx ]; then
-    echo "${GREEN}installing kubectx and kubens${NORMAL}"
+    print "installing kubectx and kubens"
     KUBECTX_VERSION=0.9.4
     curl -Lo /tmp/kubectx.zip https://github.com/ahmetb/kubectx/archive/v${KUBECTX_VERSION}.zip
     unzip -d /tmp /tmp/kubectx.zip
@@ -60,7 +59,7 @@ if [ ! -f /opt/kubectx ]; then
 fi
 
 if [ ! -x "$(command -v docker)" ]; then
-    echo "${GREEN}installing docker${NORMAL}"
+    print "installing docker"
     sudo apt-get install -y \
         apt-transport-https \
         ca-certificates \
@@ -77,13 +76,13 @@ if [ ! -x "$(command -v docker)" ]; then
 fi
 
 if [ ! -x "$(command -v docker-compose)" ]; then
-    echo "${GREEN}installing docker-compose${NORMAL}"
+    print "installing docker-compose"
     sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
 fi
 
 if [ ! -x "$(command -v gcloud)" ]; then
-    echo "${GREEN}installing google-cloud-sdk${NORMAL}"
+    print "installing google-cloud-sdk"
     sudo apt-get install apt-transport-https ca-certificates gnupg
     echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
@@ -91,7 +90,7 @@ if [ ! -x "$(command -v gcloud)" ]; then
 fi
 
 if [ ! -x "$(command -v ansible)" ]; then
-    echo "${GREEN}installing ansible${NORMAL}"
+    print "installing ansible"
     sudo apt update
     sudo apt install -y software-properties-common
     sudo add-apt-repository --yes --update ppa:ansible/ansible
