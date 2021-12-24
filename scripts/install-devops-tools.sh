@@ -89,3 +89,11 @@ if [ ! -x "$(command -v gcloud)" ]; then
     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
     sudo apt-get update && sudo apt-get install -y google-cloud-sdk
 fi
+
+if [ ! -x "$(command -v ansible)" ]; then
+    echo "${GREEN}installing ansible${NORMAL}"
+    sudo apt update
+    sudo apt install -y software-properties-common
+    sudo add-apt-repository --yes --update ppa:ansible/ansible
+    sudo apt install -y ansible
+fi
