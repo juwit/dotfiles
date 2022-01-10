@@ -3,15 +3,16 @@ set -e
 
 source utils.sh
 
-if [ ! -d /opt/go-1.13.8 ]; then
+GOLANG_VERSION=1.17.5
+
+if [ ! -d /opt/go-$GOLANG_VERSION ]; then
     print "installing golang"
-    curl -Lo /tmp/go1.13.8.linux-amd64.tar.gz https://dl.google.com/go/go1.13.8.linux-amd64.tar.gz
-    sudo tar -C /opt -xf /tmp/go1.13.8.linux-amd64.tar.gz
-    sudo mv /opt/go /opt/go-1.13.8
-    rm /tmp/go1.13.8.linux-amd64.tar.gz
+    curl -Lo /tmp/go$GOLANG_VERSION.linux-amd64.tar.gz https://dl.google.com/go/go$GOLANG_VERSION.linux-amd64.tar.gz
+    sudo tar -C /opt -xf /tmp/go$GOLANG_VERSION.linux-amd64.tar.gz
+    rm /tmp/go$GOLANG_VERSION.linux-amd64.tar.gz
 fi
 
 if [ ! -x "$(command -v goland)" ]; then
     print "installing goland"
-    sudo snap install goland --classic
+    flatpak install -y flathub com.jetbrains.GoLand
 fi
