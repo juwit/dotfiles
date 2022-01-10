@@ -59,6 +59,14 @@ if [ ! -f /opt/kubectx ]; then
     rm -rf /tmp/kubectx-${KUBECTX_VERSION}
 fi
 
+if [ ! -f /opt/k9s ]; then
+    print "installing k9s"
+    K9S_VERSION=0.25.18
+    curl -Lo /tmp/k9s.tar.gz https://github.com/derailed/k9s/releases/download/v$K9S_VERSION/k9s_Linux_x86_64.tar.gz
+    tar -xf /tmp/k9s.tar.gz k9s
+    sudo mv k9s /opt
+fi
+
 if [ ! -x "$(command -v docker)" ]; then
     print "installing docker"
     sudo apt-get install -y \
