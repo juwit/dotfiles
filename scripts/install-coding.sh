@@ -18,6 +18,7 @@ fi
 
 print "installing intellij-idea-ultimate"
 flatpak install -y flathub com.jetbrains.IntelliJ-IDEA-Ultimate
+flatpak override --user --filesystem=/run/docker.sock com.jetbrains.IntelliJ-IDEA-Ultimate
 
 print "installing datagrip"
 flatpak install -y flathub com.jetbrains.DataGrip
