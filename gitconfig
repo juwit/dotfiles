@@ -4,7 +4,7 @@
 	signingkey = 54C0EFA1762381BA
 [core]
 	editor = vim
-	pager = less -FRSX
+	pager = less -FRX
 [commit]
 	gpgsign = true
 [format]
