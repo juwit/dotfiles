@@ -18,7 +18,8 @@ sudo apt-get install -y vim \
                         ssh \
                         proxychains \
                         neofetch \
-                        tree
+                        tree \
+                        jq
 
 flatpak install -y flathub org.chromium.Chromium
 
