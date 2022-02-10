@@ -27,6 +27,9 @@
 
     # publish a new branch to origin
     first-push = "!git push -u origin $(git rev-parse --abbrev-ref HEAD)"
+
+    # publish without ci
+    push-without-ci = push -o "ci.skip"
 [pull]
 	ff = only
 [init]
