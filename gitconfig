@@ -36,3 +36,5 @@
 	defaultBranch = main
 [remote "origin"]
 	prune = true
+[help]
+	autocorrect = 1
