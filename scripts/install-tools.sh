@@ -16,7 +16,7 @@ sudo apt-get install -y vim \
                         fonts-powerline \
                         direnv \
                         ssh \
-                        proxychains \
+                        proxychains4 \
                         neofetch \
                         tree \
                         jq
