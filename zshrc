@@ -65,6 +65,7 @@ DEFAULT_USER=`whoami`
 plugins=(
   git
   kubectl
+  helm
   docker
 )
 
