@@ -67,6 +67,13 @@ if [ ! -f /opt/k9s ]; then
     sudo mv k9s /opt
 fi
 
+if [ ! -x "$(command -v minikube)" ]; then
+    print "installing minikube"
+    curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
+    sudo dpkg -i minikube_latest_amd64.deb
+    rm minikube_latest_amd64.deb
+fi
+
 if [ ! -x "$(command -v docker)" ]; then
     print "installing docker"
     sudo apt-get install -y \
