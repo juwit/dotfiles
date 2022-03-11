@@ -67,6 +67,13 @@ if [ ! -f /opt/k9s ]; then
     sudo mv k9s /opt
 fi
 
+SCW_CLI_VERSION="2.4.0"
+if [ ! -f /opt/scw ]; then
+    print "installing scaleway cli"
+    sudo curl -s -o /opt/scw -L "https://github.com/scaleway/scaleway-cli/releases/download/v${SCW_CLI_VERSION}/scw-${SCW_CLI_VERSION}-linux-x86_64"
+    sudo chmod +x /opt/scw
+fi
+
 if [ ! -x "$(command -v minikube)" ]; then
     print "installing minikube"
     curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
