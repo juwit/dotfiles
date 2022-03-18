@@ -8,6 +8,7 @@ if [ ! -x "$(command -v node)" ]; then
     curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
     sudo apt-get install -y nodejs
     sudo corepack enable
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 fi
 
 if [ ! -x "$(command -v gitmoji-changelog)" ]; then
