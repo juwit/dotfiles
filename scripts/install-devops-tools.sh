@@ -74,6 +74,13 @@ if [ ! -f /opt/scw ]; then
     sudo chmod +x /opt/scw
 fi
 
+if [ ! -f /opt/opa ]; then
+    print "installing opa"
+    OPA_VERSION=0.38.1
+    sudo curl -L -o /opt/opa https://github.com/open-policy-agent/opa/releases/download/v$OPA_VERSION/opa_linux_amd64_static
+    sudo chmod +x /opt/opa
+fi
+
 if [ ! -x "$(command -v minikube)" ]; then
     print "installing minikube"
     curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
