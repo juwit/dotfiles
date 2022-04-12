@@ -29,3 +29,11 @@ flatpak install -y flathub rest.insomnia.Insomnia
 
 print "installing gitkraken"
 flatpak install -y flathub com.axosoft.GitKraken
+
+DIFFT_VERSION="0.26.3"
+if [ ! -f /usr/local/bin/difft ]; then
+    print "installing difftastic ${DIFFT_VERSION}"
+    curl -Lo /tmp/difft.tar.gz https://github.com/Wilfred/difftastic/releases/download/${DIFFT_VERSION}/difft-x86_64-unknown-linux-gnu.tar.gz
+    tar xvf /tmp/difft.tar.gz
+    sudo mv difft /usr/local/bin/
+fi
