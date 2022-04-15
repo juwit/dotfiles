@@ -20,6 +20,7 @@ sudo apt-get install -y vim \
                         neofetch \
                         tree \
                         jq \
+                        at \
 
 flatpak install -y flathub org.chromium.Chromium
 
