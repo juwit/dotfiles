@@ -7,6 +7,9 @@
 # java
 target/
 
+# node
+node_modules/
+
 # direnv
 .envrc
 .env
