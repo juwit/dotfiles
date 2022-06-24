@@ -16,6 +16,10 @@ if [ ! -x "$(command -v notable)" ]; then
     rm notable.deb
 fi
 
+if [ ! -x "$(command -v obsidian)" ]; then
+    flatpak install -y flathub md.obsidian.Obsidian
+fi
+
 print "installing intellij-idea-ultimate"
 flatpak install -y flathub com.jetbrains.IntelliJ-IDEA-Ultimate
 flatpak override --user --filesystem=/run/docker.sock com.jetbrains.IntelliJ-IDEA-Ultimate
