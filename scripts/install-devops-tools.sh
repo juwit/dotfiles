@@ -67,6 +67,13 @@ if [ ! -f /opt/k9s ]; then
     sudo mv k9s /opt
 fi
 
+if [ ! -x "$(command -v dive)" ]; then
+    DIVE_VERSION=0.10.0
+    wget https://github.com/wagoodman/dive/releases/download/v${DIVE_VERSION}/dive_${DIVE_VERSION}_linux_amd64.deb
+    sudo apt install ./dive_${DIVE_VERSION}_linux_amd64.deb
+    rm dive_${DIVE_VERSION}_linux_amd64.deb
+fi
+
 SCW_CLI_VERSION="2.4.0"
 if [ ! -f /opt/scw ]; then
     print "installing scaleway cli"
