@@ -3,10 +3,26 @@ set -e
 
 source utils.sh
 
-JAVA_VERSION="17.0.1+12"
+JAVA_VERSION="17.0.4.1+1"
 if [ ! -d /opt/jdk-${JAVA_VERSION} ]; then
     print "installing jdk ${JAVA_VERSION} "
-    curl -Lo /tmp/jdk-${JAVA_VERSION}.tar.gz https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.1%2B12/OpenJDK17U-jdk_x64_linux_hotspot_17.0.1_12.tar.gz
+    curl -Lo /tmp/jdk-${JAVA_VERSION}.tar.gz https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.4.1%2B1/OpenJDK17U-jdk_x64_linux_hotspot_17.0.4.1_1.tar.gz
+    sudo tar -C /opt -xf /tmp/jdk-${JAVA_VERSION}.tar.gz
+    rm /tmp/jdk-${JAVA_VERSION}.tar.gz
+fi
+
+JAVA_VERSION="11.0.16.1+1"
+if [ ! -d /opt/jdk-${JAVA_VERSION} ]; then
+    print "installing jdk ${JAVA_VERSION} "
+    curl -Lo /tmp/jdk-${JAVA_VERSION}.tar.gz https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.16.1%2B1/OpenJDK11U-jdk_x64_linux_hotspot_11.0.16.1_1.tar.gz
+    sudo tar -C /opt -xf /tmp/jdk-${JAVA_VERSION}.tar.gz
+    rm /tmp/jdk-${JAVA_VERSION}.tar.gz
+fi
+
+JAVA_VERSION="8u345-b01"
+if [ ! -d /opt/jdk-${JAVA_VERSION} ]; then
+    print "installing jdk ${JAVA_VERSION} "
+    curl -Lo /tmp/jdk-${JAVA_VERSION}.tar.gz https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u345-b01/OpenJDK8U-jdk_x64_linux_hotspot_8u345b01.tar.gz
     sudo tar -C /opt -xf /tmp/jdk-${JAVA_VERSION}.tar.gz
     rm /tmp/jdk-${JAVA_VERSION}.tar.gz
 fi
