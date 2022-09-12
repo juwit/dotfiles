@@ -88,6 +88,15 @@ if [ ! -f /opt/opa ]; then
     sudo chmod +x /opt/opa
 fi
 
+if [ ! -f /opt/task ]; then
+    print "installing taskfile"
+    TASK_VERSION=3.15.2
+    curl -LO https://github.com/go-task/task/releases/download/v$TASK_VERSION/task_linux_amd64.tar.gz
+    tar -xvf task_linux_amd64.tar.gz task
+    rm task_linux_amd64.tar.gz
+    sudo mv task /opt
+fi
+
 if [ ! -x "$(command -v minikube)" ]; then
     print "installing minikube"
     curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
