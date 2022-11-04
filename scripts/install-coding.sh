@@ -20,11 +20,6 @@ if [ ! -x "$(command -v obsidian)" ]; then
     flatpak install -y flathub md.obsidian.Obsidian
 fi
 
-print "installing intellij-idea-ultimate"
-flatpak install -y flathub com.jetbrains.IntelliJ-IDEA-Ultimate
-flatpak override --user --filesystem=/run/docker.sock com.jetbrains.IntelliJ-IDEA-Ultimate
-flatpak override --user --env=EXTRA_PATH=/usr/bin com.jetbrains.IntelliJ-IDEA-Ultimate
-
 print "installing drawio"
 flatpak install -y flathub com.jgraph.drawio.desktop
 
