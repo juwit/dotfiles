@@ -20,14 +20,13 @@ if [ ! -x "$(command -v obsidian)" ]; then
     flatpak install -y flathub md.obsidian.Obsidian
 fi
 
+flatpak install -y flathub com.zettlr.Zettlr
+
 print "installing drawio"
 flatpak install -y flathub com.jgraph.drawio.desktop
 
 print "installing insomnia"
 flatpak install -y flathub rest.insomnia.Insomnia
-
-print "installing gitkraken"
-flatpak install -y flathub com.axosoft.GitKraken
 
 DIFFT_VERSION="0.26.3"
 if [ ! -f /usr/local/bin/difft ]; then
