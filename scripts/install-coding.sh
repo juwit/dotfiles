@@ -9,13 +9,6 @@ if [ ! -x "$(command -v codium)" ]; then
     sudo apt update && sudo apt install codium
 fi
 
-if [ ! -x "$(command -v notable)" ]; then
-    print "installing notable"
-    wget -O notable.deb https://download.notable.app/?target=deb
-    sudo apt install ./notable.deb
-    rm notable.deb
-fi
-
 if [ ! -x "$(command -v obsidian)" ]; then
     flatpak install -y flathub md.obsidian.Obsidian
 fi
