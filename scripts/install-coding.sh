@@ -13,7 +13,9 @@ if [ ! -x "$(command -v obsidian)" ]; then
     flatpak install -y flathub md.obsidian.Obsidian
 fi
 
-flatpak install -y flathub com.zettlr.Zettlr
+if [ ! -x "$(command -v Zettlr)" ]; then
+    flatpak install -y flathub com.zettlr.Zettlr
+fi
 
 print "installing drawio"
 flatpak install -y flathub com.jgraph.drawio.desktop
