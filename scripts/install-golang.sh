@@ -11,8 +11,3 @@ if [ ! -d /opt/go-$GOLANG_VERSION ]; then
     sudo tar -C /opt -xf /tmp/go$GOLANG_VERSION.linux-amd64.tar.gz
     rm /tmp/go$GOLANG_VERSION.linux-amd64.tar.gz
 fi
-
-if [ ! -x "$(command -v goland)" ]; then
-    print "installing goland"
-    flatpak install -y flathub com.jetbrains.GoLand
-fi
