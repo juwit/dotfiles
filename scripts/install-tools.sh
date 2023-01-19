@@ -40,6 +40,11 @@ if [ ! -d /usr/share/oh-my-zsh ]; then
     sudo mkdir /root/.zsh_cache
 fi
 
+if[ ! -d /usr/share/oh-my-zsh/custom/plugins/zsh-autosuggestions ]; then
+    print "installing fish-like autosuggestions"
+    sudo git clone https://github.com/zsh-users/zsh-autosuggestions /usr/share/oh-my-zsh/custom/plugins/zsh-autosuggestions
+fi
+
 if [ ! -e /opt/op ]; then
     print "installing one password"
     OP_VERSION="1.12.3"
