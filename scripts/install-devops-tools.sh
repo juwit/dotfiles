@@ -74,7 +74,7 @@ if [ ! -x "$(command -v dive)" ]; then
     rm dive_${DIVE_VERSION}_linux_amd64.deb
 fi
 
-SCW_CLI_VERSION="2.6.2"
+SCW_CLI_VERSION="2.8.0"
 if [ ! -f /opt/scw ]; then
     print "installing scaleway cli"
     sudo curl -s -o /opt/scw -L "https://github.com/scaleway/scaleway-cli/releases/download/v${SCW_CLI_VERSION}/scaleway-cli_${SCW_CLI_VERSION}_linux_amd64"
