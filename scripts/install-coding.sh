@@ -9,10 +9,6 @@ if [ ! -x "$(command -v codium)" ]; then
     sudo apt update && sudo apt install codium
 fi
 
-if [ ! -x "$(command -v obsidian)" ]; then
-    flatpak install -y flathub md.obsidian.Obsidian
-fi
-
 if [ ! -x "$(command -v Zettlr)" ]; then
     flatpak install -y flathub com.zettlr.Zettlr
 fi
