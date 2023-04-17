@@ -3,10 +3,20 @@ set -e
 
 source utils.sh
 
-JAVA_VERSION="17.0.4.1+1"
+JAVA_VERSION="20+36"
+JAVA_SLUG=${JAVA_VERSION/+/_}
 if [ ! -d /opt/jdk-${JAVA_VERSION} ]; then
     print "installing jdk ${JAVA_VERSION} "
-    curl -Lo /tmp/jdk-${JAVA_VERSION}.tar.gz https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.4.1%2B1/OpenJDK17U-jdk_x64_linux_hotspot_17.0.4.1_1.tar.gz
+    curl -Lo /tmp/jdk-${JAVA_VERSION}.tar.gz https://github.com/adoptium/temurin20-binaries/releases/download/jdk-$JAVA_VERSION/OpenJDK20U-jdk_x64_linux_hotspot_$JAVA_SLUG.tar.gz
+    sudo tar -C /opt -xf /tmp/jdk-${JAVA_VERSION}.tar.gz
+    rm /tmp/jdk-${JAVA_VERSION}.tar.gz
+fi
+
+JAVA_VERSION="17.0.6+10"
+JAVA_SLUG=${JAVA_VERSION/+/_}
+if [ ! -d /opt/jdk-${JAVA_VERSION} ]; then
+    print "installing jdk ${JAVA_VERSION} "
+    curl -Lo /tmp/jdk-${JAVA_VERSION}.tar.gz https://github.com/adoptium/temurin17-binaries/releases/download/jdk-$JAVA_VERSION/OpenJDK17U-jdk_x64_linux_hotspot_$JAVA_SLUG.tar.gz
     sudo tar -C /opt -xf /tmp/jdk-${JAVA_VERSION}.tar.gz
     rm /tmp/jdk-${JAVA_VERSION}.tar.gz
 fi
