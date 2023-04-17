@@ -61,7 +61,7 @@ fi
 
 if [ ! -f /opt/k9s ]; then
     print "installing k9s"
-    K9S_VERSION=0.25.18
+    K9S_VERSION=0.26.7
     curl -Lo /tmp/k9s.tar.gz https://github.com/derailed/k9s/releases/download/v$K9S_VERSION/k9s_Linux_x86_64.tar.gz
     tar -xf /tmp/k9s.tar.gz k9s
     sudo mv k9s /opt
