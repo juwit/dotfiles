@@ -134,3 +134,11 @@ if [ ! -x "$(command -v gcloud)" ]; then
     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
     sudo apt-get update && sudo apt-get install -y google-cloud-sdk
 fi
+
+if [ ! -x "$(command -v clever)" ]; then
+    print "installing clever-tools"
+    curl -fsSL https://clever-tools.clever-cloud.com/gpg/cc-nexus-deb.public.gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/cc-nexus-deb.gpg
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/cc-nexus-deb.gpg] https://nexus.clever-cloud.com/repository/deb stable main" | sudo tee -a /etc/apt/sources.list
+    sudo apt-get update
+    sudo apt-get install clever-tools
+fi
