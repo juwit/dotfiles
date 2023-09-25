@@ -34,3 +34,8 @@ if [ ! -x "$(command -v gh)" ]; then
     && sudo apt update \
     && sudo apt install gh -y
 fi
+
+if [ ! -x "$(command -v glab)" ]; then
+    curl -Lo /tmp/glab.deb https://gitlab.com/gitlab-org/cli/-/releases/v1.33.0/downloads/glab_1.33.0_Linux_x86_64.deb
+    sudo apt install -y /tmp/glab.deb
+fi
