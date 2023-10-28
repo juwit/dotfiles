@@ -3,6 +3,15 @@ set -e
 
 source utils.sh
 
+JAVA_VERSION="21.0.1+12"
+JAVA_SLUG=${JAVA_VERSION/+/_}
+if [ ! -d /opt/jdk-${JAVA_VERSION} ]; then
+    print "installing jdk ${JAVA_VERSION} "
+    curl -Lo /tmp/jdk-${JAVA_VERSION}.tar.gz https://github.com/adoptium/temurin21-binaries/releases/download/jdk-$JAVA_VERSION/OpenJDK21U-jdk_x64_linux_hotspot_$JAVA_SLUG.tar.gz
+    sudo tar -C /opt -xf /tmp/jdk-${JAVA_VERSION}.tar.gz
+    rm /tmp/jdk-${JAVA_VERSION}.tar.gz
+fi
+
 JAVA_VERSION="20+36"
 JAVA_SLUG=${JAVA_VERSION/+/_}
 if [ ! -d /opt/jdk-${JAVA_VERSION} ]; then
