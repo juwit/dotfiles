@@ -12,6 +12,14 @@ if [ ! -d /opt/jdk-${JAVA_VERSION} ]; then
     rm /tmp/jdk-${JAVA_VERSION}.tar.gz
 fi
 
+GRAALVM_VERSION="21"
+if [ ! -d /opt/graalvm-jdk-${GRAALVM_VERSION} ]; then
+    print "installing graalvm jdk ${GRAALVM_VERSION} "
+    curl -Lo /tmp/graalvm-jdk-${GRAALVM_VERSION}.tar.gz https://download.oracle.com/graalvm/21/latest/graalvm-jdk-21_linux-x64_bin.tar.gz
+    sudo tar -C /opt -xf /tmp/graalvm-jdk-${GRAALVM_VERSION}.tar.gz
+    rm /tmp/graalvm-jdk-${GRAALVM_VERSION}.tar.gz
+fi
+
 JAVA_VERSION="20+36"
 JAVA_SLUG=${JAVA_VERSION/+/_}
 if [ ! -d /opt/jdk-${JAVA_VERSION} ]; then
