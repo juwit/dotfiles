@@ -3,7 +3,7 @@ set -e
 
 source utils.sh
 
-JAVA_VERSION="21.0.1+12"
+JAVA_VERSION="21.0.2+13"
 JAVA_SLUG=${JAVA_VERSION/+/_}
 if [ ! -d /opt/jdk-${JAVA_VERSION} ]; then
     print "installing jdk ${JAVA_VERSION} "
