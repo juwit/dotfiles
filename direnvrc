@@ -1,6 +1,6 @@
 function use_java(){
     echo "Using Java version $1"
-    export JAVA_HOME=$(find /opt -maxdepth 1 -type d -regex "/opt/jdk-?$1.*")
+    export JAVA_HOME=$(find /opt -maxdepth 1 -type d -regex "/opt/jdk-?$1.*" | head -1)
     echo "Loading JAVA_HOME $JAVA_HOME"
     PATH_add $JAVA_HOME/bin
 }
