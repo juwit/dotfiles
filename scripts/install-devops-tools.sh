@@ -83,7 +83,7 @@ fi
 
 if [ ! -f /opt/opa ]; then
     print "installing opa"
-    OPA_VERSION=0.43.0
+    OPA_VERSION=0.62.1
     sudo curl -L -o /opt/opa https://github.com/open-policy-agent/opa/releases/download/v$OPA_VERSION/opa_linux_amd64_static
     sudo chmod +x /opt/opa
 fi
