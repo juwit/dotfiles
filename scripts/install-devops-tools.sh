@@ -50,7 +50,7 @@ fi
 
 if [ ! -f /opt/kubectx ]; then
     print "installing kubectx and kubens"
-    KUBECTX_VERSION=0.9.4
+    KUBECTX_VERSION=0.9.5
     curl -Lo /tmp/kubectx.zip https://github.com/ahmetb/kubectx/archive/v${KUBECTX_VERSION}.zip
     unzip -d /tmp /tmp/kubectx.zip
     sudo mv /tmp/kubectx-${KUBECTX_VERSION}/kubectx /opt
