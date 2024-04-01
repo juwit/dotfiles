@@ -11,7 +11,8 @@ fi
 # terraform tools
 if [ ! -x "$(command -v tfenv)" ]; then
     print "installing tfenv"
-    sudo git clone --depth=1 https://github.com/tfutils/tfenv.git /opt/tfenv
+    git clone --depth=1 https://github.com/tfutils/tfenv.git tfenv
+    sudo mv tfenv /opt
 fi
 
 if [ ! -x "$(command -v terraform-docs)" ]; then
