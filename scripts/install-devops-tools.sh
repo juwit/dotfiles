@@ -8,6 +8,7 @@ if [ ! -x "$(command -v direnv)" ]; then
     sudo apt install direnv
 fi
 
+# terraform tools
 if [ ! -x "$(command -v tfenv)" ]; then
     print "installing tfenv"
     sudo git clone --depth=1 https://github.com/tfutils/tfenv.git /opt/tfenv
@@ -22,6 +23,15 @@ if [ ! -x "$(command -v terraform-docs)" ]; then
     rm terraform-docs.tar.gz README.md LICENSE
 fi
 
+if [ ! -x "$(command -v tflint)" ]; then
+    print "installing tflint"
+    curl -Lo ./tflint.zip https://github.com/terraform-linters/tflint/releases/download/v0.50.3/tflint_linux_amd64.zip
+    unzip ./tflint.zip
+    sudo mv tflint /opt
+    rm ./tflint.zip
+fi
+
+# vm tools
 if [ ! -x "$(command -v packer)" ]; then
     print "installing packer"
     curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
@@ -29,6 +39,7 @@ if [ ! -x "$(command -v packer)" ]; then
     sudo apt-get update && sudo apt-get install packer
 fi
 
+# k8s tools
 if [ ! -x "$(command -v kubectl)" ]; then
     print "installing kubectl"
     sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
