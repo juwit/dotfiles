@@ -16,12 +16,13 @@ if [ ! -x "$(command -v tfenv)" ]; then
 fi
 
 if [ ! -x "$(command -v terraform-docs)" ]; then
-    print "installing terraform-docs"
-    curl -Lo ./terraform-docs.tar.gz https://github.com/terraform-docs/terraform-docs/releases/download/v0.16.0/terraform-docs-v0.16.0-$(uname)-amd64.tar.gz
+    TERRAFORM_DOCS_VERSION=v0.17.0
+    print "installing terraform-docs $TERRAFORM_DOCS_VERSION"
+    curl -Lo ./terraform-docs.tar.gz https://github.com/terraform-docs/terraform-docs/releases/download/$TERRAFORM_DOCS_VERSION/terraform-docs-$TERRAFORM_DOCS_VERSION-linux-amd64.tar.gz
     tar -xzf terraform-docs.tar.gz
     chmod +x terraform-docs
-    sudo mv terraform-docs /usr/local/bin/terraform-docs
-    rm terraform-docs.tar.gz README.md LICENSE
+    sudo install terraform-docs /usr/local/bin/terraform-docs
+    rm terraform-docs.tar.gz README.md LICENSE terraform-docs
 fi
 
 if [ ! -x "$(command -v tflint)" ]; then
