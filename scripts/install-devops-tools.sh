@@ -8,11 +8,9 @@ if [ ! -x "$(command -v direnv)" ]; then
     sudo apt install direnv
 fi
 
-if [ ! -x "$(command -v terraform)" ]; then
-    print "installing terraform"
-    curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
-    sudo apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
-    sudo apt-get update && sudo apt-get install terraform
+if [ ! -x "$(command -v tfenv)" ]; then
+    print "installing tfenv"
+    sudo git clone --depth=1 https://github.com/tfutils/tfenv.git /opt/tfenv
 fi
 
 if [ ! -x "$(command -v terraform-docs)" ]; then

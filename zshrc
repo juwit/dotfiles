@@ -1,7 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-export PATH=~/.local/bin:/opt:$PATH
+export PATH=~/.local/bin:/opt:/opt/tfenv/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=/usr/share/oh-my-zsh
