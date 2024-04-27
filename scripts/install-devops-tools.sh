@@ -101,7 +101,7 @@ fi
 
 if [ ! -f /opt/task ]; then
     print "installing taskfile"
-    TASK_VERSION=3.31.0
+    TASK_VERSION=3.36.0
     curl -LO https://github.com/go-task/task/releases/download/v$TASK_VERSION/task_linux_amd64.tar.gz
     tar -xvf task_linux_amd64.tar.gz task
     rm task_linux_amd64.tar.gz
