@@ -67,12 +67,6 @@ if [ ! -x "$(command -v insync)" ]; then
     sudo apt-get update && sudo apt-get install insync
 fi
 
-if [ ! -x "$(command -v bat)" ]; then
-    print "installing bat"
-    sudo apt install bat
-    mkdir -p ~/.local/bin
-    ln -s /usr/bin/batcat ~/.local/bin/bat
-fi
 
 print "cleaning up apt packages"
 sudo apt-get -y autoremove
