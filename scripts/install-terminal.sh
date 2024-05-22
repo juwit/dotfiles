@@ -25,5 +25,5 @@ if [ ! -x "$(command -v lsd)" ]; then
     print "installing lsd"
     wget https://github.com/lsd-rs/lsd/releases/download/v1.1.2/lsd_1.1.2_amd64.deb
     sudo dpkg -i lsd_1.1.2_amd64.deb
-    rm lsd_1.1.2_amd64.deb.deb
+    rm lsd_1.1.2_amd64.deb
 fi
