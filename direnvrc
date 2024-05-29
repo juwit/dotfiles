@@ -7,7 +7,7 @@ function use_java(){
 
 function use_graalvm() {
     echo "Using GraalVM version $1"
-    export JAVA_HOME=$(find /opt -maxdepth 1 -type d -regex "/opt/graalvm-ce-java$1.*")
+    export JAVA_HOME=$(find /opt -maxdepth 1 -type d -regex "/opt/graalvm-.*$1.*" | head -1)
     export GRAALVM_HOME=$JAVA_HOME
     echo "Loading JAVA_HOME $JAVA_HOME"
     PATH_add $JAVA_HOME/bin
