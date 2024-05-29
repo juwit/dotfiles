@@ -1,3 +1,10 @@
+function use_go(){
+    echo "Using Go version $1"
+    export GOROOT=$(find /opt/go -maxdepth 1 -type d -regex "/opt/go/go-$1.*" | head -1)
+    echo "Loading GOROOT $GOROOT"
+    PATH_add $GOROOT/bin
+}
+
 function use_java(){
     echo "Using Java version $1"
     export JAVA_HOME=$(find /opt -maxdepth 1 -type d -regex "/opt/jdk-?$1.*" | head -1)
