@@ -54,9 +54,9 @@ if [ ! -d /opt/jdk-${JAVA_VERSION} ]; then
     rm /tmp/jdk-${JAVA_VERSION}.tar.gz
 fi
 
-MAVEN_VERSION="3.8.4"
+MAVEN_VERSION="3.9.6"
 if [ ! -d /opt/apache-maven-${MAVEN_VERSION} ]; then
-    print "installing maven 3"
+    print "installing maven $MAVEN_VERSION"
     curl -Lo /tmp/apache-maven-${MAVEN_VERSION}-bin.tar.gz http://apache.crihan.fr/dist/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz
     sudo tar -C /opt -xf /tmp/apache-maven-${MAVEN_VERSION}-bin.tar.gz
     rm /tmp/apache-maven-${MAVEN_VERSION}-bin.tar.gz
