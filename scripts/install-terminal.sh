@@ -27,3 +27,12 @@ if [ ! -x "$(command -v lsd)" ]; then
     sudo dpkg -i lsd_1.1.2_amd64.deb
     rm lsd_1.1.2_amd64.deb
 fi
+
+if [ ! -x "$(command -v gum)" ]; then
+    GUM_VERSION=0.14.1
+    print "installing gum $GUM_VERSION"
+
+    wget https://github.com/charmbracelet/gum/releases/download/v${GUM_VERSION}/gum_${GUM_VERSION}_amd64.deb
+    sudo dpkg -i gum_${GUM_VERSION}_amd64.deb
+    rm gum_${GUM_VERSION}_amd64.deb
+fi
