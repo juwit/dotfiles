@@ -121,3 +121,6 @@ fi
 if [ -x "$(command -v lsd)" ]; then
     alias ls=lsd
 fi
+if [ -x "$(command -v bat)" ]; then
+    alias cat=bat --plain
+fi
