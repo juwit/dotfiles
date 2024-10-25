@@ -1,17 +1,19 @@
 #!/usr/bin/env bash
 
+source utils.sh
+
 # install tool detection
 INSTALL_TOOL=
 if [ -x "$(command -v apt)" ]; then
-    echo "apt compatible environment"
+    print "apt compatible environment detected"
     INSTALL_TOOL=apt
 fi
 if [ -x "$(command -v pacman)" ]; then
-    echo "pacman compatible environment"
+    print "pacman compatible environment detected"
     INSTALL_TOOL=pacman
 fi
 
 if [ ! $INSTALL_TOOL ]; then
-    echo "Install tool not detected"
+    print "Install tool not detected"
     exit 1
 fi
