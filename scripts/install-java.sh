@@ -3,7 +3,7 @@ set -e
 
 source utils.sh
 
-JAVA_VERSION="21.0.2+13"
+JAVA_VERSION="21.0.8+9"
 JAVA_SLUG=${JAVA_VERSION/+/_}
 if [ ! -d /opt/jdk-${JAVA_VERSION} ]; then
     print "installing jdk ${JAVA_VERSION} "
@@ -15,21 +15,12 @@ fi
 GRAALVM_VERSION="21"
 if [ ! -d /opt/graalvm-jdk-${GRAALVM_VERSION} ]; then
     print "installing graalvm jdk ${GRAALVM_VERSION} "
-    curl -Lo /tmp/graalvm-jdk-${GRAALVM_VERSION}.tar.gz https://download.oracle.com/graalvm/21/latest/graalvm-jdk-21_linux-x64_bin.tar.gz
+    curl -Lo /tmp/graalvm-jdk-${GRAALVM_VERSION}.tar.gz https://download.oracle.com/graalvm/${GRAALVM_VERSION}/latest/graalvm-jdk-${GRAALVM_VERSION}_linux-x64_bin.tar.gz
     sudo tar -C /opt -xf /tmp/graalvm-jdk-${GRAALVM_VERSION}.tar.gz
     rm /tmp/graalvm-jdk-${GRAALVM_VERSION}.tar.gz
 fi
 
-JAVA_VERSION="20+36"
-JAVA_SLUG=${JAVA_VERSION/+/_}
-if [ ! -d /opt/jdk-${JAVA_VERSION} ]; then
-    print "installing jdk ${JAVA_VERSION} "
-    curl -Lo /tmp/jdk-${JAVA_VERSION}.tar.gz https://github.com/adoptium/temurin20-binaries/releases/download/jdk-$JAVA_VERSION/OpenJDK20U-jdk_x64_linux_hotspot_$JAVA_SLUG.tar.gz
-    sudo tar -C /opt -xf /tmp/jdk-${JAVA_VERSION}.tar.gz
-    rm /tmp/jdk-${JAVA_VERSION}.tar.gz
-fi
-
-JAVA_VERSION="17.0.6+10"
+JAVA_VERSION="17.0.16+8"
 JAVA_SLUG=${JAVA_VERSION/+/_}
 if [ ! -d /opt/jdk-${JAVA_VERSION} ]; then
     print "installing jdk ${JAVA_VERSION} "
@@ -38,7 +29,7 @@ if [ ! -d /opt/jdk-${JAVA_VERSION} ]; then
     rm /tmp/jdk-${JAVA_VERSION}.tar.gz
 fi
 
-JAVA_VERSION="11.0.16.1+1"
+JAVA_VERSION="11.0.28+6"
 if [ ! -d /opt/jdk-${JAVA_VERSION} ]; then
     print "installing jdk ${JAVA_VERSION} "
     curl -Lo /tmp/jdk-${JAVA_VERSION}.tar.gz https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.16.1%2B1/OpenJDK11U-jdk_x64_linux_hotspot_11.0.16.1_1.tar.gz
@@ -46,7 +37,7 @@ if [ ! -d /opt/jdk-${JAVA_VERSION} ]; then
     rm /tmp/jdk-${JAVA_VERSION}.tar.gz
 fi
 
-JAVA_VERSION="8u345-b01"
+JAVA_VERSION="8.0.462+8"
 if [ ! -d /opt/jdk-${JAVA_VERSION} ]; then
     print "installing jdk ${JAVA_VERSION} "
     curl -Lo /tmp/jdk-${JAVA_VERSION}.tar.gz https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u345-b01/OpenJDK8U-jdk_x64_linux_hotspot_8u345b01.tar.gz
@@ -54,7 +45,7 @@ if [ ! -d /opt/jdk-${JAVA_VERSION} ]; then
     rm /tmp/jdk-${JAVA_VERSION}.tar.gz
 fi
 
-MAVEN_VERSION="3.9.6"
+MAVEN_VERSION="3.9.11"
 if [ ! -d /opt/apache-maven-${MAVEN_VERSION} ]; then
     print "installing maven $MAVEN_VERSION"
     curl -Lo /tmp/apache-maven-${MAVEN_VERSION}-bin.tar.gz http://apache.crihan.fr/dist/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz
